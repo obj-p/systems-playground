@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 set -eu
 
@@ -12,4 +12,5 @@ echo "ZooKeeper started at PID: $zookeeper_pid"
 bin/kafka-server-start.sh config/server.properties || true
 
 echo "Terminating ZooKeeper at PID: $zookeeper_pid"
-kill -2 "$zookeeper_pid"
+kill -0 "$zookeeper_pid" && kill "$zookeeper_pid"
+wait "$zookeeper_pid" || true
