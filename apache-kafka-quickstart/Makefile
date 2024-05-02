@@ -17,3 +17,9 @@ kafka:
 	@tar -xzf $(kafka_artifact).tgz
 	@mv $(kafka_artifact) kafka
 	@rm $(kafka_artifact).tgz
+
+## Starting the environment
+
+.PHONY: start-kafka
+start-kafka:
+	@bash scripts/start-kafka.sh
