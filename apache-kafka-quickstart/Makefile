@@ -10,8 +10,13 @@ all: clean
 	@$(MAKE) kafka
 
 .PHONY: clean
-clean:
+clean: clean-tmp
 	@rm -rf kafka
+
+.PHONY: clean-tmp
+clean-tmp:
+	@rm -rf /tmp/kafka-logs
+	@rm -rf /tmp/zookeeper
 
 ## Get Kafka
 
