@@ -1,16 +1,21 @@
 repos:
--   repo: https://github.com/pre-commit/pre-commit-hooks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.5.0
     hooks:
-    -   id: check-added-large-files
-    -   id: check-yaml
-    -   id: end-of-file-fixer
-    -   id: sort-simple-yaml
-    -   id: trailing-whitespace
--   repo: local
+      - id: check-added-large-files
+      - id: check-yaml
+      - id: end-of-file-fixer
+      - id: sort-simple-yaml
+      - id: trailing-whitespace
+  - repo: local
     hooks:
-    -   id: shellcheck
+      - id: ktlint
+        name: ktlint
+        entry: ktlint -F
+        language: system
+        types: [ kotlin ]
+      - id: shellcheck
         name: ShellCheck
         entry: shellcheck
         language: system
-        types: [shell]
+        types: [ shell ]

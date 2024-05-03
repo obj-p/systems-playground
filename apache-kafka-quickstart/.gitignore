@@ -1,4 +1,4 @@
 .idea/
 .gradle/
-kafka/
+/kafka/
 kafka.tgz

@@ -1,6 +1,16 @@
+build/
+
+## Gradle
+
+.gradle/
+
 ## Homebrew
 
 Brewfile.lock.json
+
+## Intellij
+
+.idea/
 
 ## MacOS
 
