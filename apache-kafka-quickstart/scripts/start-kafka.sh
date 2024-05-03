@@ -2,6 +2,19 @@
 
 set -eu
 
+KAFKA_PORT="${KAFKA_PORT:-9092}"
+ZOOKEEPER_PORT="${ZOOKEEPER_PORT:-2181}"
+
+if lsof -Pi :"$ZOOKEEPER_PORT" -sTCP:LISTEN -t >/dev/null; then
+  echo "Port $ZOOKEEPER_PORT is already in use"
+  exit
+fi
+
+if lsof -Pi :"$KAFKA_PORT" -sTCP:LISTEN -t >/dev/null; then
+  echo "Port $KAFKA_PORT is already in use"
+  exit
+fi
+
 cd kafka
 
 # start zookeeper in background
